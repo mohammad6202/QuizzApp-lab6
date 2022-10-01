@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
-import 'models/functions.dart';
-import 'models/Quiz.dart';
+import 'models/Alerts.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -9,46 +8,51 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          automaticallyImplyLeading: false,
-          centerTitle: true,
-          title: Text("Quizz App"),
-          backgroundColor: Color.fromARGB(255, 69, 68, 68),
-        ),
-        body: Container(
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        centerTitle: true,
+        backgroundColor: const Color.fromARGB(255, 69, 68, 68),
+      ),
+      body: Container(
+          color: const Color.fromARGB(255, 45, 43, 43),
           height: double.infinity,
-          decoration: BoxDecoration(
-              image: DecorationImage(
-                  fit: BoxFit.fill, image: AssetImage("images/knowledge.jpg"))),
-          child: SingleChildScrollView(
-              child: Column(
+          width: double.infinity,
+          child: Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
-              Text(
-                "Knowledge is power. Information is liberating.Education is the permise of progress, in every society, in every family.",
+              const Text(
+                "BRAIN TEST",
                 style: TextStyle(
-                    color: Color.fromARGB(255, 204, 204, 192),
+                    color: Color.fromARGB(255, 196, 170, 7),
                     fontSize: 35,
                     fontFamily: 'Caveat'),
               ),
-              SizedBox(
-                height: 450,
+              const SizedBox(
+                height: 70,
+              ),
+              const Image(
+                  height: 350,
+                  fit: BoxFit.fill,
+                  image: AssetImage("images/thumb.png")),
+              const SizedBox(
+                height: 150,
               ),
               ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                      backgroundColor: Color.fromARGB(255, 196, 170, 7)),
+                      side: BorderSide(style: BorderStyle.solid),
+                      backgroundColor: const Color.fromARGB(255, 196, 170, 7)),
                   onPressed: () {
                     showDialog(
                         context: context,
                         builder: ((context) {
-                          return Alert();
+                          return const Alert();
                         }));
                   },
-                  child: Text("Start Quiz"))
+                  child: const Text("Start Quiz"))
             ],
           )),
-        ));
+    );
   }
 }
